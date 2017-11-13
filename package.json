@@ -1,0 +1,39 @@
+{
+  "name": "slim-rabbit",
+  "version": "1.0.0",
+  "description": "A Node.js micro-services framework based on RabbitMQ",
+  "main": "src/application.js",
+  "private": false,
+  "dependencies": {
+    "amqplib": "0.5.1",
+    "delegates": "1.0.0",
+    "koa-compose": "4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "4.10.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.8.0"
+  },
+  "scripts": {
+    "lint": "eslint src/*.js",
+    "fix": "eslint src/*.js --fix"
+  },
+  "author": "Weyoss <weyoss@protonmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "microservces",
+    "amqp",
+    "rabbitmq",
+    "framework",
+    "middleware",
+    "app"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/weyoss/slim-rabbit.git"
+  },
+  "homepage": "https://github.com/weyoss/slim-rabbit",
+  "bugs": {
+    "url": "https://github.com/weyoss/slim-rabbit/issues"
+  }
+}
