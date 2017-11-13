@@ -148,7 +148,7 @@ See http://www.squaremobius.net/amqp.node/channel_api.html#channel_nack
 
 Reject all messages outstanding on this channel. Delegated to amqplib Channel#nackAll.
 
-See http://www.squaremobius.net/amqp.node/channel_api.html#channel_ackAll
+See http://www.squaremobius.net/amqp.node/channel_api.html#channel_nackAll
 
 #### context.reject
 
@@ -226,7 +226,9 @@ const app = new SlimRabbit('test_queue', queueOpts, consumeOpts)
 
 ### app.use
 
-Add the given middleware function to this application. See Middleware for more information.
+Add a given middleware function to this application.
+
+***Example:***
 
 ```js
 app.use(async function (ctx, next) {
@@ -239,12 +241,12 @@ app.use(async function (ctx, next) {
 });
 ```
 
+See [Middleware](https://github.com/weyoss/slim-rabbit#middleware)
+ 
 ### app.connect
 
-Open a connection to RabbitMQ server, create consumerChannel and publisherChannel, and begin consuming messages
-the given queue. `app.connect` accepts the same params as amqplib's `connect` method.
-
-See http://www.squaremobius.net/amqp.node/channel_api.html#connect
+Open a connection to the RabbitMQ server, create consumerChannel, publisherChannel and begin consuming messages from
+the given queue. `app.connect` accepts the same parameters as amqplib `connect` method.
 
 ```text
 /**
@@ -255,6 +257,8 @@ See http://www.squaremobius.net/amqp.node/channel_api.html#connect
  */
 async connect(url, socketOpts = {}) 
 ```
+
+See http://www.squaremobius.net/amqp.node/channel_api.html#connect
 
 ### app.context
 
@@ -280,8 +284,6 @@ by using Object.defineProperty() on app.context.
 
 Setup prefetch options for the application's consumer channel (consumerChannel).
 
-See http://www.squaremobius.net/amqp.node/channel_api.html#channel_prefetch
-
 ```js
 const SlimRabbit = require('slim-rabbit');
 
@@ -302,6 +304,8 @@ app.use(async (ctx) => {
 
 app.connect();
 ```
+
+See http://www.squaremobius.net/amqp.node/channel_api.html#channel_prefetch
 
 ### app.close
 
@@ -354,94 +358,72 @@ The following events are emitted from the application during different stages of
 ### connection:created
 
 ```js
-app.on('connection:created', (connection) => {
-
-})
+app.on('connection:created', (connection) => {})
 ```
 
 ### connection:closed
 
 ```js
-app.on('connection:closed', () => {
-
-})
+app.on('connection:closed', () => {})
 ```
 
 ### connection:error
 
 ```js
-app.on('connection:error', (err) => {
-
-})
+app.on('connection:error', (err) => {})
 ```
 
 ### consumer-channel:created
 
 ```js
-app.on('consumer-channel:created', (channel) => {
-
-})
+app.on('consumer-channel:created', (channel) => {})
 ```
 
 ### consumer-channel:closed
 
 ```js
-app.on('consumer-channel:closed', () => {
-
-})
+app.on('consumer-channel:closed', () => {})
 ```
 
 ### consumer-channel:error
 
 ```js
-app.on('consumer-channel:error', (err) => {
-
-})
+app.on('consumer-channel:error', (err) => {})
 ```
 
 ### publisher-channel:created
 
 ```js
-app.on('publisher-channel:created', (channel) => {
-
-})
+app.on('publisher-channel:created', (channel) => {})
 ```
 
 ### publisher-channel:closed
 
 ```js
-app.on('publisher-channel:closed', (channel) => {
-
-})
+app.on('publisher-channel:closed', (channel) => {})
 ```
 
 ### publisher-channel:error
 
 ```js
-app.on('publisher-channel:error', (err) => {
-
-})
+app.on('publisher-channel:error', (err) => {})
 ```
 
 ### consumer:listen
 
 ```js
-app.on('consumer:listen', (queueName, consumerTag) => {
-
-})
+app.on('consumer:listen', (queueName, consumerTag) => {})
 ```
 
 ### consumer:error
 
 ```js
-app.on('consumer:error', (err, context) => {
-
-})
+app.on('consumer:error', (err, context) => {})
 ```
 
 # Bugs
 
-This the initial release of the project, if you find any bugs or something goes wrong, please let me know. [Open a issue](https://github.com/weyoss/slim-rabbit/issues) into github 
+This the initial release of the project. If you find any bugs or something goes wrong please let me know. [Open a issue](https://github.com/weyoss/slim-rabbit/issues) into github 
 (including the case to reproduce the bug when possible).
 
 # LICENSE
