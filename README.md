@@ -421,11 +421,10 @@ app.on('consumer:listen', (queueName, consumerTag) => {})
 app.on('consumer:error', (err, context) => {})
 ```
 
-# Bugs
+# Contributing
 
-This the initial release of the project. If you find any bugs or something goes wrong please let me know. [Open a issue](https://github.com/weyoss/slim-rabbit/issues) into github 
-(including the case to reproduce the bug when possible).
+So you are interested in contributing to this project? Please see [CONTRIBUTING.md](https://github.com/weyoss/guidelines/blob/master/CONTRIBUTIONS.md).
 
-# LICENSE
+# License
 
 [MIT](https://github.com/weyoss/slim-rabbit/blob/master/LICENSE)

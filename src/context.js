@@ -70,7 +70,7 @@ class Context {
      * @param {*} data
      * @return {Buffer}
      */
-    bufferFrom(data) {
+    static bufferFrom(data) {
         if (Buffer.isBuffer(data)) return data;
         const string = (typeof data === 'object') ? JSON.stringify(data) : `${data}`;
         return Buffer.from(string);

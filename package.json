@@ -12,9 +12,12 @@
   "devDependencies": {
     "eslint": "4.10.0",
     "eslint-config-airbnb-base": "12.1.0",
-    "eslint-plugin-import": "2.8.0"
+    "eslint-plugin-import": "2.8.0",
+    "mocha": "5.0.0",
+    "sinon": "4.2.2"
   },
   "scripts": {
+    "test": "eslint src/*.js && mocha --reporter spec test/run/*.js",
     "lint": "eslint src/*.js",
     "fix": "eslint src/*.js --fix"
   },
